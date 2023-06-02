@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.rateyo.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/selectize.default.min.css') }}"/>
+    <title>Form</title>
+</head>
+
+<body>
+    <section class="main">
+        <div class="head">
+            <img class="logo" src="./static/img/logo.svg" >
+        </div>
+        <section class="content">
+            <div class="selekt_market">
+                <p>На каком маркетплейсе приобрели продукт</p>
+                    <div class="section_form"  onclick="toggleRadioButton('wb')">
+                        <div class="content_input">
+                            <input id='wb' type="radio" name="option" value="wb"> <p>Wilberres</p><br>
+                        </div>
+                    </div>
+                    <div class="section_form"  onclick="toggleRadioButton('ozon')">
+                        <div class="content_input">
+                            <input id='ozon' type="radio" name="option" value="ozon"><p>Ozon</p><br>
+                        </div> 
+                    </div>
+            </div>
+            <div class="select_product">
+                <p>Выберите продукт</p>
+                <div class="selektProd">
+                <select readonly id="selectProd">
+                    <option value="9"><p>Маршмеллоу суфле для тела</p></option>
+                    <option value="1"><p>Маска для окрашенных волос</p></option>
+                    <option value="2"><p>Шампунь для окрашенных волос</p></option>
+                    <option value="5"><p>Масло для кончиков волос SUPER SILIKON</p></option>
+                    <option value="3"><p>Сыворотка для контура глаз PEPTIDE</p></option>
+                    <option value="4"><p>Увлажняющий тоник HY-FFECTIVE</p></option>
+                    <option value="6"><p>Кислотный тоник SPINACH</p></option>
+                    <option value="12"><p>Успокаивающий тоник</p></option>
+                    <option value="8"><p>Антивозрастной тоник PEONY</p></option>
+                    
+                    <option value="10"><p>Гидрофильное масло для снятия макияжа</p></option>
+                    <option value="11"><p>Скраб-маска YGOLЬ SODA</p></option>
+                    
+                </select>
+                <div class="flex_img_prod">
+                    <img id ='selected_prod' src="./static/img/zaglyshka.png">
+                </div>
+            </div>
+        </div>
+            <div class="revue_box">
+                <div class="title"><p>Оцените упаковку</p></div>
+                <div id="rateBox"></div>
+                <div class="name">
+                    <div class="flex_inpyt">
+                        <textarea type="text" name="name" id="name" oninput="autoResize(this)" placeholder="Оставить комментарий"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="revue_product">
+                <div class="title"><p>Оцените продукт</p></div>
+                <div id="rateProd"></div>
+                <div class="name">
+                    <div class="flex_inpyt">
+                        <textarea type="text" name="pos" id="pos" oninput="autoResize(this)" placeholder="Достоинства"></textarea>
+                    </div>
+                    <div class="flex_inpyt">
+                        <textarea type="text" name="neg" id="neg" oninput="autoResize(this)" placeholder="Недостатки"></textarea>
+                    </div>
+                    <div class="flex_inpyt">
+                        <textarea type="text" name="rewue" id="rewue" oninput="autoResize(this)" placeholder="Комментарий"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="docs">
+                <div id="uploader">
+                    <p>Добавить файлы +</p>
+                </div>
+
+                <div id="preview"></div>
+            </div>
+            <div id='push' onclick = "push()">
+                <p>Оставить отзыв</p>
+            </div>
+
+            <div class="costil" style = "opacity:0;margin-top:20px;">paskalka promo = qwe</div>
+            <div id="alert_msg"><div id="msg"></div>
+        </section>
+        
+
+    </section>
+
+
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/rateyo.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/selectize.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ypload.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plupload.full.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    
+
+</body>
+</html>
