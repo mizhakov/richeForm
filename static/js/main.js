@@ -7,6 +7,7 @@ function toggleRadioButton(id) {
   var radio = document.getElementById(id);
   radio.checked = true;
   _state_market = 1;
+  $('.section_form').css({'border': 'none'})
 }
 
 var rait_box = 0;
@@ -41,7 +42,7 @@ $(document).ready(function () {
     items: ['Выберите продукт'],
     onChange: function (value) {
       var image = document.getElementById('selected_prod');
-
+      $('.selectize-input').attr('style', 'border: none !important')
       document.getElementById('selected_prod').style.display = 'block';
 
       state_prod = value;
@@ -148,6 +149,7 @@ $(document).ready(function () {
 });
 
 function autoResize(textarea) {
+  textarea.style.border = 'none'
   if (textarea.value.length <= 28) {
     textarea.style.height = '28px';
   } else {
@@ -176,6 +178,7 @@ function push() {
   if (_state_market == 1) {
     data.market = $('#wb')[0].checked ? "wb" : "ozon";
   } else {
+    $('.section_form').css({'border': '1px solid red'})
     $('#alert_msg').css({ 'opacity': '1', 'top': "20px" });
     $('#msg').text("Выберите место где покупали товар");
     setTimeout(function () {
@@ -187,6 +190,8 @@ function push() {
   }
 
   if (state_prod == -1) {
+    $('.selectize-input').attr('style', 'border: 1px solid red !important')
+    console.log( $('.selectize-input'))
     $('#alert_msg').css({ 'opacity': '1', 'top': "20px" });
     $('#msg').text("Выберите продукт");
     setTimeout(function () {
@@ -222,6 +227,7 @@ function push() {
   }
 
   if ($('#pos').val() == ""){
+    $('#pos').css({'border': '1px solid red'});
     $('#alert_msg').css({ 'opacity': '1', 'top': "20px" });
     $('#msg').text("Укажите достоинства");
     setTimeout(function () {
@@ -232,6 +238,7 @@ function push() {
     data.pos = $('#pos').val();
   }
   if ($('#neg').val() == ""){
+    $('#neg').css({'border': '1px solid red'});
     $('#alert_msg').css({ 'opacity': '1', 'top': "20px" });
     $('#msg').text("Укажите недостатки");
     setTimeout(function () {
@@ -254,12 +261,12 @@ function push() {
     contentType: 'application/json',
     data: JSON.stringify(data),
     success: function(response) {
-      $('#alert_msg').css({ 'opacity': '1', 'top': "20px" , 'background' : "green"});
-      $('#msg').text("Спасибо за отзыв !");
+      $('#alert_msg').css({ 'opacity': '1', 'top': "20px" , 'background' : "#58B151"});
+      $('#msg').text("Благодарим за оставленный отзыв!");
         setTimeout(function () {
       $('#alert_msg').css({ 'opacity': '1', 'top': "-120px" });
       // redirect();
-    }, 5000);
+    }, 10000);
     },
     error: function(xhr, status, error) {
       console.error(error);
